@@ -449,7 +449,7 @@ function ListView({
                     setQuery={setQuery}
                     showLoader={isLoading}
                   />
-                  <Footer count={total} params={query} onChange={setQuery} />
+                  <Footer count={total} params={query} onChange={setQuery} data={data} displayedHeaders={displayedHeaders} allAllowedHeaders={allAllowedHeaders} name={label} />
                 </div>
               </div>
             </Wrapper>
