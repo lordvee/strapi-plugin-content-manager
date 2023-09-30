@@ -1,11 +1,13 @@
 import React, { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Button } from '@buffetjs/core';
 import PropTypes from 'prop-types';
 import { GlobalPagination, InputSelect, useGlobalContext } from 'strapi-helper-plugin';
 import ExcelExport from 'export-xlsx';
 import { FooterWrapper, SelectWrapper, Label } from './components';
+import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
-function Footer({ count, onChange, params, pageData, allData, displayedHeaders, allAllowedHeaders, name, contentType }) {
+function Footer({ count, onChange, params, data, displayedHeaders, allAllowedHeaders, name }) {
   const { emitEvent } = useGlobalContext();
   const _limit = parseInt(params.pageSize, 10);
   const _page = parseInt(params.page, 10);
@@ -20,66 +22,32 @@ function Footer({ count, onChange, params, pageData, allData, displayedHeaders, 
     onChange({ pageSize: value });
   };
 
-  const exportexcel = async (flag) => {
-    let excelData = [], headersData = [], data = []
-    if (flag) {
-      data = allData
-      for(let i in allAllowedHeaders) {
-        let name = allAllowedHeaders[i]
-        const { metadatas, attributes } = contentType;
-        const metas = metadatas[name].list;
-        const header = {
-          name,
-          fieldSchema: attributes[name],
-          metadatas: metas,
-          key: `__${name}_key__`,
-        };
-        headersData = [...headersData, header];
-      }
-    } else {
-      data = pageData
-      headersData = [...displayedHeaders]
-    }
-console.log(data)
+  const exportexcel = (flag) => {
+    let excelData = [], headersData = [], start = 0, end = 10
     if (data && data.length) {
-      for (let i = 0; i < data.length; i++) {
-        let obj = {}
-        for (let j = 0; j < headersData.length; j++) {
-          let key = ""
-          if(headersData[j] && headersData[j].name) key = headersData[j].name
+      if (flag) {
+        headersData = allAllowedHeaders
+        start = 0
+        end = data.length
+      } else {
+        headersData = displayedHeaders
+        start = _limit * (_page - 1)
+        end = (start + _limit) > data.length ? data.length : (start + _limit)
+      }
 
-          if (typeof data[i][key] === 'object' && data[i][key]) {
-            let subKey = ""
-            if(headersData[j].metadatas && headersData[j].metadatas.mainField && headersData[j].metadatas.mainField.name) subKey = headersData[j].metadatas.mainField && headersData[j].metadatas.mainField.name
-            
-            if(subKey) {
-              obj = {
-                ...obj, 
-                [key] : (
-                  (
-                    data[i][key][subKey] && data[i][key][subKey] !== null && data[i][key][subKey] !== undefined && data[i][key][subKey] !== "undefined"
-                  ) ? 
-                  data[i][key][subKey]: 
-                  (
-                    data[i][key].count || data[i][key].count === 0 ? data[i][key].count : ""
-                  )
-                )
-              }
-            } else {
-              obj[key] = ""
-            }
+      for (let i = start; i < end; i++) {
+        let obj = {}
+
+        for (let j = 0; j < headersData.length; j++) {
+          if (typeof data[i][headersData[j].name] === 'object') {
+            obj[headersData[j].name] = data[i][headersData[j].name][headersData[j].metadatas.mainField.name]
           } else {
-            console.log( data[i][key], '---------------')
-            obj[key] = data[i][key] !== null ? data[i][key]: ""
+            obj[headersData[j].name] = data[i][headersData[j].name]
           }
         }
-        excelData = [...excelData, obj]
+        excelData.push(obj)
       }
 
-      if(excelData[0] && excelData[0].id) {
-        excelData = excelData.sort((a, b) => a.id - b.id)
-      }
-console.log(excelData, '----excelData----')
       const exportData = [{
           data: excelData
       }]
@@ -92,7 +60,7 @@ console.log(excelData, '----excelData----')
         obj.key = i
         headerDefinition.push(obj)
       }
-      
+
       const SETTINGS_FOR_EXPORT = {
         fileName: name,
         workSheets: [
@@ -131,8 +99,8 @@ console.log(excelData, '----excelData----')
         </SelectWrapper>
       </div>
       <div className="col-4" style={{ display: 'flex', justifyContent: 'center' }}>
-        <button color="primary" className="sc-dkPtRN kjJQAt" style={{ marginRight: '3rem' }} onClick={() => exportexcel(false)}>Export</button>
-        <button color="primary" className="sc-dkPtRN kjJQAt" onClick={() => exportexcel(true)}>Export All</button>
+        <Button color="primary" icon={<FontAwesomeIcon icon={faFileExcel} />} label="Export" />} onClick={() => exportexcel(false)} />
+        <Button color="primary" icon={<FontAwesomeIcon icon={faFileExcel} />} label="Export All" />} onClick={() => exportexcel(true)} />
       </div>
       <div className="col-4">
         <GlobalPagination
@@ -153,7 +121,6 @@ Footer.propTypes = {
   count: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   params: PropTypes.object.isRequired,
-  displayedHeaders: PropTypes.array.isRequired,
 };
 
 export default memo(Footer);

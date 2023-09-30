@@ -10,6 +10,7 @@ const dtoFields = [
   'isDisplayed',
   'apiID',
   'kind',
+  'icon',
   'category',
   'info',
   'options',

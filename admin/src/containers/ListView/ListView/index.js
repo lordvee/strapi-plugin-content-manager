@@ -101,7 +101,6 @@ function ListView({
 
   const [isFilterPickerOpen, setFilterPickerState] = useState(false);
   const [idToDelete, setIdToDelete] = useState(null);
-  const [allData, setAllData] = useState([]);
   const contentType = layout.contentType;
   const hasDraftAndPublish = get(contentType, 'options.draftAndPublish', false);
   const allAllowedHeaders = useMemo(() => getAllAllowedHeaders(attributes), [attributes]);
@@ -245,32 +244,22 @@ function ListView({
     onDeleteDataError,
   ]);
 
-  const getAllData = useCallback( async () => {
-    const requestUrl = `/${pluginId}/collection-types/${slug}?page=1&pageSize=-1&_sort=id:ASC`;
-    try {
-      const { results } = await request(requestUrl, { method: 'GET' });
-      setAllData(results)
-    } catch (err) {
-      console.log(err);
-    }
-}, [pluginId, slug]);
-
   useEffect(() => {
     const abortController = new AbortController();
     const { signal } = abortController;
 
     const shouldSendRequest = canRead;
     const requestUrl = `/${pluginId}/collection-types/${slug}${params}`;
+
     if (shouldSendRequest && requestUrl.includes(requestUrlRef.current)) {
       fetchData(requestUrl, signal);
-      getAllData()
     }
 
     return () => {
       requestUrlRef.current = slug;
       abortController.abort();
     };
-  }, [canRead, getData, slug, params, getDataSucceeded, fetchData, getAllData]);
+  }, [canRead, getData, slug, params, getDataSucceeded, fetchData]);
 
   const handleClickDelete = id => {
     setIdToDelete(id);
@@ -460,7 +449,7 @@ function ListView({
                     setQuery={setQuery}
                     showLoader={isLoading}
                   />
-                  <Footer count={total} params={query} onChange={setQuery} pageData={data} allData={allData} displayedHeaders={displayedHeaders} allAllowedHeaders={allAllowedHeaders} name={label} contentType={contentType} />
+                  <Footer count={total} params={query} onChange={setQuery} data={data} displayedHeaders={displayedHeaders} allAllowedHeaders={allAllowedHeaders} name={label} />
                 </div>
               </div>
             </Wrapper>
