@@ -1,11 +1,9 @@
 import React, { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Button } from '@buffetjs/core';
 import PropTypes from 'prop-types';
 import { GlobalPagination, InputSelect, useGlobalContext } from 'strapi-helper-plugin';
 import ExcelExport from 'export-xlsx';
 import { FooterWrapper, SelectWrapper, Label } from './components';
-import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
 function Footer({ count, onChange, params, data, displayedHeaders, allAllowedHeaders, name }) {
   const { emitEvent } = useGlobalContext();
@@ -60,7 +58,7 @@ function Footer({ count, onChange, params, data, displayedHeaders, allAllowedHea
         obj.key = i
         headerDefinition.push(obj)
       }
-
+      
       const SETTINGS_FOR_EXPORT = {
         fileName: name,
         workSheets: [
@@ -99,8 +97,8 @@ function Footer({ count, onChange, params, data, displayedHeaders, allAllowedHea
         </SelectWrapper>
       </div>
       <div className="col-4" style={{ display: 'flex', justifyContent: 'center' }}>
-        <Button color="primary" icon={<FontAwesomeIcon icon={faFileExcel} />} label="Export" />} onClick={() => exportexcel(false)} />
-        <Button color="primary" icon={<FontAwesomeIcon icon={faFileExcel} />} label="Export All" />} onClick={() => exportexcel(true)} />
+        <button color="primary" className="sc-dkPtRN kjJQAt" style={{ marginRight: '3rem' }} onClick={() => exportexcel(false)}>Export</button>
+        <button color="primary" className="sc-dkPtRN kjJQAt" onClick={() => exportexcel(true)}>Export All</button>
       </div>
       <div className="col-4">
         <GlobalPagination

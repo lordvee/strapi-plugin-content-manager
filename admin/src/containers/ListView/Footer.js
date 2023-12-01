@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import { GlobalPagination, InputSelect, useGlobalContext } from 'strapi-helper-plugin';
 import ExcelExport from 'export-xlsx';
 import { FooterWrapper, SelectWrapper, Label } from './components';
+import { Button } from '@buffetjs/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
+
 
 function Footer({ count, onChange, params, pageData, allData, displayedHeaders, allAllowedHeaders, name, contentType }) {
   const { emitEvent } = useGlobalContext();
@@ -40,7 +44,6 @@ function Footer({ count, onChange, params, pageData, allData, displayedHeaders, 
       data = pageData
       headersData = [...displayedHeaders]
     }
-console.log(data)
     if (data && data.length) {
       for (let i = 0; i < data.length; i++) {
         let obj = {}
@@ -51,15 +54,15 @@ console.log(data)
           if (typeof data[i][key] === 'object' && data[i][key]) {
             let subKey = ""
             if(headersData[j].metadatas && headersData[j].metadatas.mainField && headersData[j].metadatas.mainField.name) subKey = headersData[j].metadatas.mainField && headersData[j].metadatas.mainField.name
-            
+
             if(subKey) {
               obj = {
-                ...obj, 
+                ...obj,
                 [key] : (
                   (
                     data[i][key][subKey] && data[i][key][subKey] !== null && data[i][key][subKey] !== undefined && data[i][key][subKey] !== "undefined"
-                  ) ? 
-                  data[i][key][subKey]: 
+                  ) ?
+                  data[i][key][subKey]:
                   (
                     data[i][key].count || data[i][key].count === 0 ? data[i][key].count : ""
                   )
@@ -69,7 +72,7 @@ console.log(data)
               obj[key] = ""
             }
           } else {
-            console.log( data[i][key], '---------------')
+            //console.log( data[i][key], '---------------')
             obj[key] = data[i][key] !== null ? data[i][key]: ""
           }
         }
@@ -79,7 +82,6 @@ console.log(data)
       if(excelData[0] && excelData[0].id) {
         excelData = excelData.sort((a, b) => a.id - b.id)
       }
-console.log(excelData, '----excelData----')
       const exportData = [{
           data: excelData
       }]
@@ -92,7 +94,7 @@ console.log(excelData, '----excelData----')
         obj.key = i
         headerDefinition.push(obj)
       }
-      
+
       const SETTINGS_FOR_EXPORT = {
         fileName: name,
         workSheets: [
@@ -130,9 +132,11 @@ console.log(excelData, '----excelData----')
           </Label>
         </SelectWrapper>
       </div>
-      <div className="col-4" style={{ display: 'flex', justifyContent: 'center' }}>
-        <button color="primary" className="sc-dkPtRN kjJQAt" style={{ marginRight: '3rem' }} onClick={() => exportexcel(false)}>Export</button>
-        <button color="primary" className="sc-dkPtRN kjJQAt" onClick={() => exportexcel(true)}>Export All</button>
+      <div className="col-2" style={{ display: 'flex', justifyContent: 'center' }}>
+        <Button color="primary" icon={<FontAwesomeIcon icon={faFileExcel} />} label="Export" onClick={() => exportexcel(false)} />
+      </div>
+      <div className="col-2" style={{ display: 'flex', justifyContent: 'center' }}>
+        <Button color="primary" icon={<FontAwesomeIcon icon={faFileExcel} />} label="Export All" onClick={() => exportexcel(true)} />
       </div>
       <div className="col-4">
         <GlobalPagination
