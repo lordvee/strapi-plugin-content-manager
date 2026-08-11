@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Success, Remove } from '@buffetjs/icons';
+import { Success, Remove } from '@punch-in/buffet-modern-icons';
 import { useGlobalContext } from 'strapi-helper-plugin';
 
 import pluginId from '../../pluginId';

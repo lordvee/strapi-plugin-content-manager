@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Remove } from '@buffetjs/icons';
+import { Remove } from '@punch-in/buffet-modern-icons';
 
 const Close = styled(Remove)`
   > path {

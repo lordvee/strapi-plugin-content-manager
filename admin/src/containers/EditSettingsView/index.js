@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, shallowEqual } from 'react-redux';
 import { cloneDeep, flatMap, get, set, pick } from 'lodash';
 import { request, useGlobalContext } from 'strapi-helper-plugin';
-import { Inputs as Input } from '@buffetjs/custom';
+import { Inputs as Input } from '@punch-in/buffet-modern-custom';
 import { FormattedMessage } from 'react-intl';
 import pluginId from '../../pluginId';
 import { getInjectedComponents, getRequestUrl } from '../../utils';

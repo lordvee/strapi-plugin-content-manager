@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Tooltip } from '@buffetjs/styles';
+import { Tooltip } from '@punch-in/buffet-modern-styles';
 import MediaPreviewList from '../../MediaPreviewList';
 import RelationPreviewList from '../../RelationPreviewList';
 import Truncate from '../../Truncate';

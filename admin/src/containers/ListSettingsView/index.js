@@ -5,7 +5,7 @@ import { request, useGlobalContext } from 'strapi-helper-plugin';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useDrop } from 'react-dnd';
 import { DropdownItem } from 'reactstrap';
-import { Inputs as Input } from '@buffetjs/custom';
+import { Inputs as Input } from '@punch-in/buffet-modern-custom';
 import pluginId from '../../pluginId';
 import { checkIfAttributeIsDisplayable, ItemTypes, getRequestUrl } from '../../utils';
 import PopupForm from '../../components/PopupForm';

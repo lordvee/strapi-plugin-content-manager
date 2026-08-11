@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 import { isEmpty, isFunction } from 'lodash';
 import cn from 'classnames';
 import { LabelIconWrapper } from 'strapi-helper-plugin';
-import { Description, ErrorMessage, Label } from '@buffetjs/styles';
-import { Error } from '@buffetjs/core';
+import { Description, ErrorMessage, Label } from '@punch-in/buffet-modern-styles';
+import { Error } from '@punch-in/buffet-modern-core';
 
 import InputJSON from '../InputJSON';
 import Wrapper from './Wrapper';

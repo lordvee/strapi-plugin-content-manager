@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { get, omit, take } from 'lodash';
 import isEqual from 'react-fast-compare';
 import { useIntl } from 'react-intl';
-import { Inputs as InputsIndex } from '@buffetjs/custom';
+import { Inputs as InputsIndex } from '@punch-in/buffet-modern-custom';
 import { NotAllowedInput, useStrapi } from 'strapi-helper-plugin';
 import { useContentTypeLayout } from '../../hooks';
 import { getFieldName } from '../../utils';

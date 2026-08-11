@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { get, isEqual, upperFirst } from 'lodash';
 import { withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { Inputs as Input, Header } from '@buffetjs/custom';
+import { Inputs as Input, Header } from '@punch-in/buffet-modern-custom';
 import {
-  BackHeader,
   LoadingIndicatorPage,
   ModalConfirm,
   PopUpWarning,
   // contexts
   useGlobalContext,
 } from 'strapi-helper-plugin';
+import  BackHeader  from './BackHeader';
 import pluginId from '../../pluginId';
 import Block from '../Block';
 import Container from '../Container';

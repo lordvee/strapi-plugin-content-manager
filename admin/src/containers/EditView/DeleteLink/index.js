@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { get } from 'lodash';
 import isEqual from 'react-fast-compare';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Text } from '@buffetjs/core';
+import { Text } from '@punch-in/buffet-modern-core';
 import { PopUpWarning } from 'strapi-helper-plugin';
 import PropTypes from 'prop-types';
 import pluginId from '../../../pluginId';

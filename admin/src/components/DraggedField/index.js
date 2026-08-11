@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Grab, GrabLarge, Pencil } from '@buffetjs/icons';
+import { Grab, GrabLarge, Pencil } from '@punch-in/buffet-modern-icons';
 import { CheckPermissions } from 'strapi-helper-plugin';
 import pluginId from '../../pluginId';
 import pluginPermissions from '../../permissions';

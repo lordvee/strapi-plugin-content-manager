@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Padded, Text, Flex } from '@buffetjs/core';
+import { Padded, Text, Flex } from '@punch-in/buffet-modern-core';
 import { get, isEmpty } from 'lodash';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -23,10 +23,24 @@ const InformationCard = () => {
   );
 
   const updatedBy = useMemo(() => {
-    const firstname = get(initialData, ['updated_by', 'firstname'], '');
-    const lastname = get(initialData, ['updated_by', 'lastname'], '');
+    // get()'s default only kicks in for `undefined`, not `null` - admin accounts with no
+    // first/last name set store literal `null` here, which used to render as "null null".
+    const firstname = get(initialData, ['updated_by', 'firstname']);
+    const lastname = get(initialData, ['updated_by', 'lastname']);
+    const fullName = [firstname, lastname].filter(Boolean).join(' ');
 
-    return `${firstname} ${lastname}`;
+    if (fullName) {
+      return fullName;
+    }
+
+    const email = get(initialData, ['updated_by', 'email']);
+    const username = get(initialData, ['updated_by', 'username']);
+
+    return (
+      email ||
+      username ||
+      formatMessage({ id: getTrad('containers.Edit.information.unknownUser') })
+    );
   }, [initialData]);
 
   return (

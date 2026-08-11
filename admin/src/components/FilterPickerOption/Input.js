@@ -6,8 +6,8 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-import { DateTime } from '@buffetjs/custom';
-import { DatePicker, InputText, InputNumber, Select, TimePicker } from '@buffetjs/core';
+import { DateTime } from '@punch-in/buffet-modern-custom';
+import { DatePicker, InputText, InputNumber, Select, TimePicker } from '@punch-in/buffet-modern-core';
 import { InputWrapperDate } from './components';
 
 const getInputType = attrType => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Flex, Text } from '@buffetjs/core';
+import { Flex, Text } from '@punch-in/buffet-modern-core';
 
 const SubWrapper = styled.div`
   background: #ffffff;

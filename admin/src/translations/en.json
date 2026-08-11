@@ -57,6 +57,7 @@
   "containers.Edit.information.editing": "Editing",
   "containers.Edit.information.lastUpdate": "Last update",
   "containers.Edit.information.publishedVersion": "published version",
+  "containers.Edit.information.unknownUser": "Unknown user",
   "containers.Edit.pluginHeader.title.new": "Create an entry",
   "containers.Edit.reset": "Reset",
   "containers.Edit.returnList": "Return to list",

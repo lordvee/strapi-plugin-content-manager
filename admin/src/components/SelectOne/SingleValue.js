@@ -2,7 +2,7 @@ import React from 'react';
 import { components } from 'react-select';
 import PropTypes from 'prop-types';
 import { get, has, isEmpty } from 'lodash';
-import { Flex, Padded, Text } from '@buffetjs/core';
+import { Flex, Padded, Text } from '@punch-in/buffet-modern-core';
 import { RelationDPState } from 'strapi-helper-plugin';
 import { getDisplayedValue } from '../../utils';
 

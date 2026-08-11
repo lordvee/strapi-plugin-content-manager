@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox } from '@buffetjs/core';
+import { Checkbox } from '@punch-in/buffet-modern-core';
 import Wrapper from './Wrapper';
 
 const Field = ({ name, onChange, value }) => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react';
-import { Text, Padded } from '@buffetjs/core';
+import { Text, Padded } from '@punch-in/buffet-modern-core';
 import { request } from 'strapi-helper-plugin';
-import { LoadingIndicator, Tooltip } from '@buffetjs/styles';
+import { LoadingIndicator, Tooltip } from '@punch-in/buffet-modern-styles';
 import PropTypes from 'prop-types';
 import { getDisplayedValue, getRequestUrl } from '../../utils';
 

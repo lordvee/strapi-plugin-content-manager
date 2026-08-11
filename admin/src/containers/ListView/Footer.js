@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { GlobalPagination, InputSelect, useGlobalContext } from 'strapi-helper-plugin';
 import ExcelExport from 'export-xlsx';
 import { FooterWrapper, SelectWrapper, Label } from './components';
-import { Button } from '@buffetjs/core';
+import { Button } from '@punch-in/buffet-modern-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 

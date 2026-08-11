@@ -4,7 +4,7 @@ import { components } from 'react-select';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { get, has, isEmpty } from 'lodash';
-import { Flex, Text } from '@buffetjs/core';
+import { Flex, Text } from '@punch-in/buffet-modern-core';
 import { RelationDPState } from 'strapi-helper-plugin';
 import { getDisplayedValue, getTrad } from '../../utils';
 

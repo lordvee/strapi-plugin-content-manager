@@ -2,13 +2,13 @@ import React, { memo, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import {
-  BackHeader,
   BaselineAlignment,
   LiLink,
   CheckPermissions,
   useGlobalContext,
 } from 'strapi-helper-plugin';
-import { Padded } from '@buffetjs/core';
+import BackHeader from './BackHeader';
+import { Padded, Flex } from '@punch-in/buffet-modern-core';
 import pluginId from '../../pluginId';
 import pluginPermissions from '../../permissions';
 import Container from '../../components/Container';
@@ -53,9 +53,8 @@ const EditView = ({
       : pluginPermissions.collectionTypesConfigurations;
   }, [isSingleType]);
 
-  const configurationsURL = `/plugins/${pluginId}/${
-    isSingleType ? 'singleType' : 'collectionType'
-  }/${slug}/configurations/edit`;
+  const configurationsURL = `/plugins/${pluginId}/${isSingleType ? 'singleType' : 'collectionType'
+    }/${slug}/configurations/edit`;
   const currentContentTypeLayoutData = useMemo(() => get(layout, ['contentType'], {}), [layout]);
 
   const DataManagementWrapper = useMemo(
@@ -120,9 +119,12 @@ const EditView = ({
             status={status}
             updateActionAllowedFields={updateActionAllowedFields}
           >
-            <BackHeader onClick={goBack} />
             <Container className="container-fluid">
-              <Header allowedActions={allowedActions} />
+              <Flex justify-content="space-between" align-items="center">
+                <BackHeader onClick={goBack} />
+                <Header allowedActions={allowedActions} />
+              </Flex>
+
               <div className="row" style={{ paddingTop: 3 }}>
                 <div className="col-md-12 col-lg-9" style={{ marginBottom: 13 }}>
                   {formattedContentTypeLayout.map((block, blockIndex) => {

@@ -1,5 +1,5 @@
 import React, { memo, useMemo } from 'react';
-import { Arrow } from '@buffetjs/icons';
+import { Arrow } from '@punch-in/buffet-modern-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import isEqual from 'react-fast-compare';

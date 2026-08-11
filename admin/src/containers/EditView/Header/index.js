@@ -1,10 +1,10 @@
 import React, { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { Header as PluginHeader } from '@buffetjs/custom';
+import { Header as PluginHeader } from '@punch-in/buffet-modern-custom';
 import { get, isEqual, isEmpty, toString } from 'lodash';
 import PropTypes from 'prop-types';
 import isEqualFastCompare from 'react-fast-compare';
-import { Text } from '@buffetjs/core';
+import { Text } from '@punch-in/buffet-modern-core';
 import { templateObject, ModalConfirm } from 'strapi-helper-plugin';
 import { getTrad } from '../../../utils';
 import { connect, getDraftRelations, select } from './utils';

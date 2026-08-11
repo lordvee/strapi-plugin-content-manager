@@ -11,7 +11,7 @@ import {
   useContentManagerEditViewDataManager,
   useQueryParams,
 } from 'strapi-helper-plugin';
-import { Flex, Text, Padded } from '@buffetjs/core';
+import { Flex, Text, Padded } from '@punch-in/buffet-modern-core';
 import { stringify } from 'qs';
 import pluginId from '../../pluginId';
 import SelectOne from '../SelectOne';

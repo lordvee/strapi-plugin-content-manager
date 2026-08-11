@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Sync } from '@buffetjs/icons';
-import { ErrorMessage, Description } from '@buffetjs/styles';
-import { Label, Error } from '@buffetjs/core';
-import { useDebounce, useClickAwayListener } from '@buffetjs/hooks';
+import { Sync } from '@punch-in/buffet-modern-icons';
+import { ErrorMessage, Description } from '@punch-in/buffet-modern-styles';
+import { Label, Error } from '@punch-in/buffet-modern-core';
+import { useDebounce, useClickAwayListener } from '@punch-in/buffet-modern-hooks';
 import styled from 'styled-components';
 import {
   request,

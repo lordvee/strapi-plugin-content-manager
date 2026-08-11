@@ -5,8 +5,8 @@ import { bindActionCreators, compose } from 'redux';
 import { get, isEmpty } from 'lodash';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Header } from '@buffetjs/custom';
-import { Flex, Padded } from '@buffetjs/core';
+import { Header } from '@punch-in/buffet-modern-custom';
+import { Flex, Padded } from '@punch-in/buffet-modern-core';
 import isEqual from 'react-fast-compare';
 import { stringify } from 'qs';
 import {

@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Carret, Grab } from '@buffetjs/icons';
+import { Carret, Grab } from '@punch-in/buffet-modern-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import pluginId from '../../pluginId';
 import PreviewCarret from '../PreviewCarret';

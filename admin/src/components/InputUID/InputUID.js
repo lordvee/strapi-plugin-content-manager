@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { InputText } from '@buffetjs/core';
-import { colors } from '@buffetjs/styles';
+import { InputText } from '@punch-in/buffet-modern-core';
+import { colors } from '@punch-in/buffet-modern-styles';
 
 /* eslint-disable indent */
 const InputUID = styled(InputText)`

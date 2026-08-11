@@ -4,7 +4,7 @@ import { useDrop } from 'react-dnd';
 import PropTypes from 'prop-types';
 import { get, take } from 'lodash';
 import { FormattedMessage } from 'react-intl';
-import { ErrorMessage } from '@buffetjs/styles';
+import { ErrorMessage } from '@punch-in/buffet-modern-styles';
 import pluginId from '../../pluginId';
 import { getMaxTempKey } from '../../utils';
 import { useContentTypeLayout } from '../../hooks';

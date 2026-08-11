@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Plus } from '@buffetjs/icons';
+import { Plus } from '@punch-in/buffet-modern-icons';
 import {
   ButtonDropdown,
   DropdownToggle,

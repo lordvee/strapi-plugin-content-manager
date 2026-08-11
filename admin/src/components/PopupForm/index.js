@@ -10,7 +10,7 @@ import {
 } from 'strapi-helper-plugin';
 import { FormattedMessage } from 'react-intl';
 import { upperFirst } from 'lodash';
-import { AttributeIcon, Button } from '@buffetjs/core';
+import { AttributeIcon, Button } from '@punch-in/buffet-modern-core';
 
 const PopupForm = ({
   headerId,

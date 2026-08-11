@@ -1,7 +1,7 @@
 import React, { memo, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Padded, Count } from '@buffetjs/core';
-import { Tooltip } from '@buffetjs/styles';
+import { Flex, Padded, Count } from '@punch-in/buffet-modern-core';
+import { Tooltip } from '@punch-in/buffet-modern-styles';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../../utils';

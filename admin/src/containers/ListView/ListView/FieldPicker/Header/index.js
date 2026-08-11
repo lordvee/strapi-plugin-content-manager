@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { Flex, Padded, Text } from '@buffetjs/core';
+import { Flex, Padded, Text } from '@punch-in/buffet-modern-core';
 import { BaselineAlignment, useGlobalContext } from 'strapi-helper-plugin';
 import { getTrad } from '../../../../utils';
 import Reset from './Reset';
